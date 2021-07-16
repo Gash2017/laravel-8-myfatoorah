@@ -3,7 +3,7 @@
 namespace App\Http\Services;
 
 use GuzzleHttp\Client;
-use Illuminate\Http\Request;
+use GuzzleHttp\Psr7\Request;
 
 class FatoorahServices
 {
@@ -32,7 +32,7 @@ class FatoorahServices
         // if(!$body)
         // return false;
         $request = $this->request_client->send($request , [
-            'json' -> $data
+            'json' => $data
         ]);
 
         if($response->getStatusCode() != 200)
