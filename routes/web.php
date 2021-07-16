@@ -1,0 +1,25 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FatoorahController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+// Route::post('pay', FatoorahController::class, 'payOrder');
+
+Route::get('payment', [\App\Http\Controllers\MyFatoorahController::class, 'index']);
+Route::get('payment/callback', [\App\Http\Controllers\MyFatoorahController::class, 'callback']);
+Route::get('payment/error', [\App\Http\Controllers\MyFatoorahController::class, 'error']);
